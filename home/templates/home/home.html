@@ -1,0 +1,37 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    {% if request.method == 'POST' %}
+        <script>
+            alert('Block added!')
+        </script>
+    {% endif %}
+
+    <h1>BlockChain</h1>
+
+    <h4>Enter your data and click submit to create a block</h4>
+
+    <form action="{% url 'add_block' %}" method="POST">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <tr>
+                <td>Dataword</td>
+                <td><input type="textarea" name="dataword"></td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-success">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+    
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+    
+{% endblock %}

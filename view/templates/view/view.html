@@ -1,0 +1,34 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}View{% endblock %}
+
+{% block body %}
+
+    <h1>BlockChain</h1>
+
+    <h4>View your data here</h4>
+
+    <div class="overflow-x-scroll">
+
+        <table>
+            <tr>
+                {% for i in blocks %}
+                    <td>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Block: {{forloop.counter}}</h4>
+                                <h6 class="card-subtitle text-muted">Previous hash: {{i.prev_hash}}</h6>
+                                <h6 class="card-subtitle text-muted">Hash: {{i.hash}}</h6>
+                                <p>{{i.data}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td><i class="bi-arrow-right"></i></i></td>
+                {% endfor %}
+            </tr>
+        </table>
+        
+
+    </div>
+
+{% endblock %}
